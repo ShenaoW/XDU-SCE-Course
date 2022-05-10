@@ -1,0 +1,28 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../字符处理/字符处理.o
+LINKOBJ  = ../字符处理/字符处理.o
+LIBS     = -L"D:/devc++/MinGW64/lib" -L"D:/devc++/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/devc++/MinGW64/include" -I"D:/devc++/MinGW64/x86_64-w64-mingw32/include" -I"D:/devc++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/devc++/MinGW64/include" -I"D:/devc++/MinGW64/x86_64-w64-mingw32/include" -I"D:/devc++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/devc++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = 字符处理.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../字符处理/字符处理.o: ../字符处理/字符处理.cpp
+	$(CPP) -c ../字符处理/字符处理.cpp -o ../字符处理/字符处理.o $(CXXFLAGS)

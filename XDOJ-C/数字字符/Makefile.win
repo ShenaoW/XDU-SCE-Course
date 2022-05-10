@@ -1,0 +1,28 @@
+# Project: ÏîÄ¿1
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Êý×Ö×Ö·û.o
+LINKOBJ  = Êý×Ö×Ö·û.o
+LIBS     = -L"D:/devc++/MinGW64/lib" -L"D:/devc++/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/devc++/MinGW64/include" -I"D:/devc++/MinGW64/x86_64-w64-mingw32/include" -I"D:/devc++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/devc++/MinGW64/include" -I"D:/devc++/MinGW64/x86_64-w64-mingw32/include" -I"D:/devc++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/devc++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = Êý×Ö×Ö·û.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Êý×Ö×Ö·û.o: Êý×Ö×Ö·û.cpp
+	$(CPP) -c Êý×Ö×Ö·û.cpp -o Êý×Ö×Ö·û.o $(CXXFLAGS)

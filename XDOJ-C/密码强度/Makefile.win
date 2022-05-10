@@ -1,0 +1,28 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = 密码强度a.o
+LINKOBJ  = 密码强度a.o
+LIBS     = -L"D:/dev-cpp_gr/Dev-Cpp/MinGW64/lib" -L"D:/dev-cpp_gr/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/dev-cpp_gr/Dev-Cpp/MinGW64/include" -I"D:/dev-cpp_gr/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/dev-cpp_gr/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/dev-cpp_gr/Dev-Cpp/MinGW64/include" -I"D:/dev-cpp_gr/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/dev-cpp_gr/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/dev-cpp_gr/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = 密码标答.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+密码强度a.o: 密码强度a.cpp
+	$(CPP) -c 密码强度a.cpp -o 密码强度a.o $(CXXFLAGS)

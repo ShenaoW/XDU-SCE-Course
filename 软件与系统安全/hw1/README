@@ -1,0 +1,9 @@
+1. make
+2. setarch i386 -R ./exploit
+   (generate "badfile" while ASLR disabled)
+3. xxd badfile
+   (to observe the content of "badfile")
+4. setarch i386 -R ./stack
+   (shell code injected onto the stack and executed)
+
+(tested on Ubuntu 18.04 64bit, gcc 7.5.0)
